@@ -1,11 +1,9 @@
-# Unofficial DefiLlama Search Client
-
 <p align="center">
     <img src="./src-tauri/icons/128x128.png" alt="DefiLlama Search Logo" width="128">
 </p>
 
 <h1 align="center">
-  DefiLlama Search
+  Unofficial DefiLlama Search for macOS
 </h1>
 <p align="center">
   A tiny macOS menu bar app for fast, keyboard-first access to <a href="https://search.defillama.com">DefiLlama Search</a>.
