@@ -1,0 +1,32 @@
+[package]
+name = "defillama-search"
+version = "0.1.0"
+description = "A tiny macOS menu bar app for fast DefiLlama Search"
+authors = ["dashfy"]
+edition = "2021"
+
+[lib]
+name = "defillama_search_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["image-png", "macos-private-api", "tray-icon"] }
+tauri-plugin-opener = "2"
+tauri-plugin-global-shortcut = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+tokio = { version = "1", features = ["time"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-app-kit = { version = "0.3", features = [
+    "NSPanel",
+    "NSResponder",
+    "NSScreen",
+    "NSWindow",
+] }
+objc2-foundation = { version = "0.3", features = ["NSGeometry"] }

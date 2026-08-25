@@ -1,0 +1,12 @@
+# ignore artifacts
+dist/
+node_modules/
+coverage/
+pnpm-lock.yaml
+.pnpm-store/
+
+# ignore all shadcn/ui files
+**/src/components/ui/**
+
+# ignore all tauri files
+**/src-tauri/**

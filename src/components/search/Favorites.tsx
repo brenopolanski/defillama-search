@@ -1,0 +1,78 @@
+import { PinButton } from '@/components/search/PinButton'
+import { SearchResultItem } from '@/components/search/SearchResultItem'
+import { CornerUpRightIcon } from '@/components/shared/Icons'
+import { CommandGroup, CommandItem } from '@/components/ui/command'
+import type { Favorite } from '@/lib/favorites'
+import type { SearchResult } from '@/lib/search/types'
+import { generateReactKey } from '@/lib/utils'
+
+interface FavoritesProps {
+  favorites: Favorite[]
+  onOpenResult: (result: SearchResult) => void
+  onSelectQuery: (query: string) => void
+  onToggleQuery: (query: string) => void
+  onToggleResult: (result: SearchResult) => void
+}
+
+const resultFromFavorite = (favorite: Extract<Favorite, { kind: 'result' }>): SearchResult => {
+  return {
+    id: favorite.id,
+    name: favorite.name,
+    url: favorite.url,
+    displayUrl: favorite.displayUrl,
+    logo: favorite.logo,
+  }
+}
+
+export const Favorites = ({
+  favorites,
+  onOpenResult,
+  onSelectQuery,
+  onToggleQuery,
+  onToggleResult,
+}: FavoritesProps) => {
+  if (favorites.length === 0) {
+    return null
+  }
+
+  return (
+    <CommandGroup heading="Favorites">
+      {favorites.map((favorite) => {
+        if (favorite.kind === 'result') {
+          const result = resultFromFavorite(favorite)
+
+          return (
+            <SearchResultItem
+              key={generateReactKey('result', favorite.id)}
+              query=""
+              result={result}
+              value={`favorite:result:${favorite.id}`}
+              pinned
+              onOpen={onOpenResult}
+              onTogglePin={onToggleResult}
+            />
+          )
+        }
+
+        return (
+          <CommandItem
+            key={generateReactKey('query', favorite.id)}
+            value={`favorite:query:${favorite.id}`}
+            onSelect={() => onSelectQuery(favorite.query)}
+          >
+            <CornerUpRightIcon
+              aria-hidden="true"
+              className="size-4 shrink-0 text-muted-foreground"
+            />
+            <span className="min-w-0 flex-1 truncate text-[13px]">{favorite.query}</span>
+            <PinButton
+              label={favorite.query}
+              pinned
+              onToggle={() => onToggleQuery(favorite.query)}
+            />
+          </CommandItem>
+        )
+      })}
+    </CommandGroup>
+  )
+}
