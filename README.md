@@ -1,3 +1,5 @@
+# Unofficial DefiLlama Search Client
+
 <p align="center">
     <img src="./src-tauri/icons/128x128.png" alt="DefiLlama Search Logo" width="128">
 </p>
