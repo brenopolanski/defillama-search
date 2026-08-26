@@ -30,7 +30,7 @@ export const RecentSearches = ({
           value={`recent:${item}`}
           onSelect={() => onSelect(item)}
         >
-          <ArrowUpRightIcon aria-hidden="true" className="size-4 shrink-0 text-muted-foreground" />
+          <ArrowUpRightIcon className="size-4 shrink-0 text-muted-foreground" />
           <span className="min-w-0 flex-1 truncate text-[13px]">{item}</span>
           <RowEnterHint />
           <PinButton label={item} pinned={isPinned(item)} onToggle={() => onTogglePin(item)} />

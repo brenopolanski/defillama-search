@@ -72,8 +72,8 @@ export const SearchCommand = ({ query, onQueryChange }: SearchCommandProps) => {
 
   return (
     <Command className="h-full" label={DEFILLAMA_SEARCH} shouldFilter={false} loop>
-      <div className="flex h-14 shrink-0 items-center gap-3 px-4">
-        <SearchIcon aria-hidden="true" className="size-4 shrink-0 text-muted-foreground" />
+      <div className="flex gap-3 items-center px-4 h-14 shrink-0">
+        <SearchIcon className="size-4 shrink-0 text-muted-foreground" />
         <CommandInput
           ref={inputRef}
           aria-label="Search crypto websites and apps..."
@@ -88,7 +88,7 @@ export const SearchCommand = ({ query, onQueryChange }: SearchCommandProps) => {
         {query && (
           <button
             aria-label="Clear search"
-            className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
+            className="p-1 rounded-full transition-colors text-muted-foreground hover:bg-white/10 hover:text-foreground"
             type="button"
             onClick={clearSearch}
           >
@@ -135,7 +135,7 @@ export const SearchCommand = ({ query, onQueryChange }: SearchCommandProps) => {
           </CommandGroup>
         )}
         {showRecents && favorites.length === 0 && recents.length === 0 && (
-          <div className="flex flex-col items-center justify-center px-6 py-10 text-center">
+          <div className="flex flex-col justify-center items-center px-6 py-10 text-center">
             <p className="text-sm text-foreground">{DEFILLAMA_SEARCH}</p>
             <p className="mt-1 text-[13px] text-muted-foreground">
               The fastest way to find safe, official links for thousands of crypto projects.
@@ -147,11 +147,11 @@ export const SearchCommand = ({ query, onQueryChange }: SearchCommandProps) => {
       <Separator />
 
       <footer className="flex h-9 shrink-0 items-center justify-between px-4 text-[11px] text-muted-foreground">
-        <div className="flex items-center gap-1">
+        <div className="flex gap-1 items-center">
           <DefiLlamaIcon className="size-4 shrink-0" />
           <span>{DEFILLAMA_SEARCH}</span>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex gap-1 items-center">
           <kbd className="rounded-md border border-border bg-muted px-1.5 py-0.5 font-sans text-[10px] tracking-wide">
             {NAVIGATE_LABEL}
           </kbd>

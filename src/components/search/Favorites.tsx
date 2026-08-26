@@ -62,8 +62,8 @@ export const Favorites = ({
             value={`favorite:query:${favorite.id}`}
             onSelect={() => onSelectQuery(favorite.query)}
           >
-            <div className="flex size-8 shrink-0 items-center justify-center">
-              <ArrowUpRightIcon aria-hidden="true" className="size-4 text-muted-foreground" />
+            <div className="flex justify-center items-center size-8 shrink-0">
+              <ArrowUpRightIcon className="size-4 text-muted-foreground" />
             </div>
             <span className="min-w-0 flex-1 truncate text-[13px]">{favorite.query}</span>
             <RowEnterHint />
