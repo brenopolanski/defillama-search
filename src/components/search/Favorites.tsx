@@ -1,7 +1,7 @@
 import { PinButton } from '@/components/search/PinButton'
 import { RowEnterHint } from '@/components/search/RowEnterHint'
 import { SearchResultItem } from '@/components/search/SearchResultItem'
-import { CornerUpRightIcon } from '@/components/shared/Icons'
+import { ArrowUpRight } from '@/components/shared/Icons'
 import { CommandGroup, CommandItem } from '@/components/ui/command'
 import type { Favorite } from '@/lib/favorites'
 import type { SearchResult } from '@/lib/search/types'
@@ -62,10 +62,7 @@ export const Favorites = ({
             value={`favorite:query:${favorite.id}`}
             onSelect={() => onSelectQuery(favorite.query)}
           >
-            <CornerUpRightIcon
-              aria-hidden="true"
-              className="size-4 shrink-0 text-muted-foreground"
-            />
+            <ArrowUpRight aria-hidden="true" className="size-4 shrink-0 text-muted-foreground" />
             <span className="min-w-0 flex-1 truncate text-[13px]">{favorite.query}</span>
             <RowEnterHint />
             <PinButton

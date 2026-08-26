@@ -1,5 +1,5 @@
 import type { LucideProps } from 'lucide-react'
-import { CornerDownLeftIcon, CornerUpRightIcon, PinIcon, SearchIcon, XIcon } from 'lucide-react'
+import { ArrowUpRight, CornerDownLeftIcon, PinIcon, SearchIcon, XIcon } from 'lucide-react'
 
 import { DEFILLAMA } from '@/lib/constants'
 
@@ -137,4 +137,4 @@ const DefiLlamaIcon = (props: LucideProps) => (
   </svg>
 )
 
-export { CornerDownLeftIcon, CornerUpRightIcon, DefiLlamaIcon, PinIcon, SearchIcon, XIcon }
+export { ArrowUpRight, CornerDownLeftIcon, DefiLlamaIcon, PinIcon, SearchIcon, XIcon }
