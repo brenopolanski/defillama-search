@@ -22,7 +22,7 @@ export const PinButton = ({ label, pinned, onToggle }: PinButtonProps) => {
       aria-label={`${action} ${label}`}
       aria-pressed={pinned}
       className={cn(
-        'p-1 rounded-full transition-colors shrink-0 hover:bg-white/10',
+        'shrink-0 rounded-full p-1 transition-colors hover:bg-white/10',
         pinned ? 'text-brand' : 'text-muted-foreground hover:text-foreground',
       )}
       type="button"
