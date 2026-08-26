@@ -10,9 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="#">
-    <img src="https://shieldcn.dev/badge/Download-DefiLlama%20Search-000000.svg?mode=light&logo=apple&logoColor=fff&size=lg" alt="Download the latest version of DefiLlama Search">
-  </a>
+  <picture>
+    <source srcset="https://shieldcn.dev/badge/Download-DefiLlama%20Search-000000.svg?mode=light&logo=apple&logoColor=fff&size=lg" media="(prefers-color-scheme: light)">
+    <source srcset="https://shieldcn.dev/badge/Download-DefiLlama%20Search-ffffff.svg?mode=light&logo=apple&logoColor=000&size=lg" media="(prefers-color-scheme: dark)">
+    <img src="https://shieldcn.dev/badge/Download-DefiLlama%20Search-ffffff.svg?mode=light&logo=apple&logoColor=000&size=lg" alt="Download the latest version of DefiLlama Search">
+  </picture>
 </p>
 
 This is an **independent open-source client**. It is not developed, maintained, or endorsed by DefiLlama.
