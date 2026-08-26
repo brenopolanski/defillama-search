@@ -5,6 +5,55 @@ import { RowEnterHint } from '@/components/search/RowEnterHint'
 import { CommandItem } from '@/components/ui/command'
 import type { SearchResult } from '@/lib/search/types'
 
+interface ResultIconProps {
+  name: string
+  logo?: string
+}
+
+const ResultIcon = ({ name, logo }: ResultIconProps) => {
+  const [failed, setFailed] = useState(false)
+  const initial = (name[0] || '?').toUpperCase()
+
+  return (
+    <div className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#3c4043] text-[12px] font-semibold text-brand">
+      {logo && !failed ? (
+        <img alt="" className="size-8 object-cover" src={logo} onError={() => setFailed(true)} />
+      ) : (
+        <span aria-hidden="true">{initial}</span>
+      )}
+    </div>
+  )
+}
+
+interface HighlightedTextProps {
+  text: string
+  query: string
+}
+
+const HighlightedText = ({ text, query }: HighlightedTextProps) => {
+  const needle = query.trim()
+
+  if (!needle) {
+    return <>{text}</>
+  }
+
+  const index = text.toLowerCase().indexOf(needle.toLowerCase())
+
+  if (index === -1) {
+    return <>{text}</>
+  }
+
+  return (
+    <>
+      {text.slice(0, index)}
+      <mark className="bg-transparent font-semibold text-brand">
+        {text.slice(index, index + needle.length)}
+      </mark>
+      {text.slice(index + needle.length)}
+    </>
+  )
+}
+
 interface SearchResultItemProps {
   result: SearchResult
   query: string
@@ -45,52 +94,5 @@ export const SearchResultItem = ({
         <PinButton label={result.name} pinned={pinned} onToggle={() => onTogglePin(result)} />
       )}
     </CommandItem>
-  )
-}
-
-interface ResultIconProps {
-  name: string
-  logo?: string
-}
-
-const ResultIcon = ({ name, logo }: ResultIconProps) => {
-  const [failed, setFailed] = useState(false)
-  const initial = (name[0] || '?').toUpperCase()
-
-  return (
-    <div className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#3c4043] text-[12px] font-semibold text-brand">
-      {logo && !failed ? (
-        <img alt="" className="size-8 object-cover" src={logo} onError={() => setFailed(true)} />
-      ) : (
-        <span aria-hidden="true">{initial}</span>
-      )}
-    </div>
-  )
-}
-
-interface HighlightedTextProps {
-  text: string
-  query: string
-}
-
-const HighlightedText = ({ text, query }: HighlightedTextProps) => {
-  const needle = query.trim()
-  if (!needle) {
-    return <>{text}</>
-  }
-
-  const index = text.toLowerCase().indexOf(needle.toLowerCase())
-  if (index === -1) {
-    return <>{text}</>
-  }
-
-  return (
-    <>
-      {text.slice(0, index)}
-      <mark className="bg-transparent font-semibold text-brand">
-        {text.slice(index, index + needle.length)}
-      </mark>
-      {text.slice(index + needle.length)}
-    </>
   )
 }
