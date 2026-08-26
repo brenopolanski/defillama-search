@@ -24,6 +24,12 @@ Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a q
   </tr>
 </table>
 
+<p>
+  <a href="#">
+    <img src="https://shieldcn.dev/badge/Download-DefiLlama%20Search-000000.svg?mode=light&logo=apple&logoColor=fff&size=lg" alt="Download the latest version of DefiLlama Search" width="220">
+  </a>
+</p>
+
 ## What it does
 
 - Lives in the macOS menu bar with no Dock icon
