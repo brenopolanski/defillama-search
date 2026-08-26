@@ -1,3 +1,5 @@
+import { SEARCH_FAILED } from '@/lib/constants'
+
 /**
  * Fields observed in the official search.defillama.com client.
  * Extra keys may exist because the site requests attributesToRetrieve: ["*"].
@@ -10,8 +12,6 @@ export interface DirectoryHit {
   route?: string
 }
 
-import { DEFILLAMA } from '@/lib/constants'
-
 export interface SearchResult {
   id: string
   name: string
@@ -22,7 +22,7 @@ export interface SearchResult {
 }
 
 export class SearchError extends Error {
-  constructor(message = `Unable to search ${DEFILLAMA}`) {
+  constructor(message = SEARCH_FAILED) {
     super(message)
     this.name = 'SearchError'
   }

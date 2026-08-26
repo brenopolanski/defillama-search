@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { DEFILLAMA, SEARCH_DEBOUNCE_MS } from '@/lib/constants'
+import { SEARCH_DEBOUNCE_MS, SEARCH_FAILED } from '@/lib/constants'
 import { search } from '@/lib/search/client'
 import type { SearchResult } from '@/lib/search/types'
 
@@ -43,7 +43,7 @@ export const useSearch = (query: string) => {
 
         setResults([])
         setStatus('error')
-        setError(`Unable to search ${DEFILLAMA}`)
+        setError(SEARCH_FAILED)
       }
     }, SEARCH_DEBOUNCE_MS)
 

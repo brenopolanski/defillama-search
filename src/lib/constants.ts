@@ -11,6 +11,7 @@ export const SEARCH_WINDOW = {
 /** Keep in sync with ABOUT_WINDOW_LABEL in src-tauri/src/window.rs */
 export const ABOUT_WINDOW_LABEL = 'about'
 
+export const SEARCH_FAILED = 'Search failed'
 export const SEARCH_DEBOUNCE_MS = 100
 export const SEARCH_RESULT_LIMIT = 20
 export const RECENT_SEARCH_LIMIT = 8

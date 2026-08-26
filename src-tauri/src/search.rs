@@ -9,7 +9,7 @@ const SEARCH_TIMEOUT: Duration = Duration::from_secs(8);
 const PUBLIC_SEARCH_CORE_TOKEN: &str =
     "efccf2e832229a6c13152623ec436553aeb5dba7f18e9b9cfb193b32d4375074";
 
-const USER_FACING_ERROR: &str = "Unable to search DefiLlama";
+const USER_FACING_ERROR: &str = "Search failed";
 
 #[tauri::command]
 pub async fn search_directory(query: String) -> Result<Vec<Value>, String> {
