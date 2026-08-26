@@ -1,4 +1,5 @@
 import { PinButton } from '@/components/search/PinButton'
+import { RowEnterHint } from '@/components/search/RowEnterHint'
 import { SearchResultItem } from '@/components/search/SearchResultItem'
 import { CornerUpRightIcon } from '@/components/shared/Icons'
 import { CommandGroup, CommandItem } from '@/components/ui/command'
@@ -57,6 +58,7 @@ export const Favorites = ({
         return (
           <CommandItem
             key={generateReactKey('query', favorite.id)}
+            className="group"
             value={`favorite:query:${favorite.id}`}
             onSelect={() => onSelectQuery(favorite.query)}
           >
@@ -65,6 +67,7 @@ export const Favorites = ({
               className="size-4 shrink-0 text-muted-foreground"
             />
             <span className="min-w-0 flex-1 truncate text-[13px]">{favorite.query}</span>
+            <RowEnterHint />
             <PinButton
               label={favorite.query}
               pinned

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { PinButton } from '@/components/search/PinButton'
+import { RowEnterHint } from '@/components/search/RowEnterHint'
 import { CommandItem } from '@/components/ui/command'
 import type { SearchResult } from '@/lib/search/types'
 
@@ -23,7 +24,7 @@ export const SearchResultItem = ({
 }: SearchResultItemProps) => {
   return (
     <CommandItem
-      className="min-h-[52px]"
+      className="group min-h-[52px]"
       value={value ?? `result:${result.id}`}
       onSelect={() => onOpen(result)}
     >
@@ -39,6 +40,7 @@ export const SearchResultItem = ({
           </div>
         )}
       </div>
+      <RowEnterHint />
       {result.url && (
         <PinButton label={result.name} pinned={pinned} onToggle={() => onTogglePin(result)} />
       )}

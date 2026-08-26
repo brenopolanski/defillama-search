@@ -1,4 +1,5 @@
 import { PinButton } from '@/components/search/PinButton'
+import { RowEnterHint } from '@/components/search/RowEnterHint'
 import { CornerUpRightIcon } from '@/components/shared/Icons'
 import { CommandGroup, CommandItem } from '@/components/ui/command'
 import { generateReactKey } from '@/lib/utils'
@@ -25,11 +26,13 @@ export const RecentSearches = ({
       {recents.map((item) => (
         <CommandItem
           key={generateReactKey('recent', item)}
+          className="group"
           value={`recent:${item}`}
           onSelect={() => onSelect(item)}
         >
           <CornerUpRightIcon aria-hidden="true" className="size-4 shrink-0 text-muted-foreground" />
           <span className="min-w-0 flex-1 truncate text-[13px]">{item}</span>
+          <RowEnterHint />
           <PinButton label={item} pinned={isPinned(item)} onToggle={() => onTogglePin(item)} />
         </CommandItem>
       ))}
