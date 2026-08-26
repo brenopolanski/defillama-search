@@ -1,4 +1,4 @@
-import type { MouseEvent, PointerEvent } from 'react'
+import type * as React from 'react'
 
 import { PinIcon } from '@/components/shared/Icons'
 import { cn } from '@/lib/utils'
@@ -9,7 +9,7 @@ interface PinSearchActionProps {
 }
 
 export const PinSearchAction = ({ pinned, onToggle }: PinSearchActionProps) => {
-  const stopGroupAction = (event: MouseEvent | PointerEvent) => {
+  const stopGroupAction = (event: React.MouseEvent | React.PointerEvent) => {
     event.preventDefault()
     event.stopPropagation()
   }

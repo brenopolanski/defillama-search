@@ -58,6 +58,7 @@ export const SearchCommand = ({ query, onQueryChange }: SearchCommandProps) => {
       }
 
       addRecent(query)
+
       try {
         await openResultUrl(result.url)
       } catch {
