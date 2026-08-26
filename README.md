@@ -9,6 +9,12 @@
   A tiny macOS menu bar app for fast, keyboard-first access to <a href="https://search.defillama.com">DefiLlama Search</a>.
 </p>
 
+<p align="center">
+  <a href="#">
+    <img src="https://shieldcn.dev/badge/Download-DefiLlama%20Search-000000.svg?mode=light&logo=apple&logoColor=fff&size=lg" alt="Download the latest version of DefiLlama Search">
+  </a>
+</p>
+
 This is an **independent open-source client**. It is not developed, maintained, or endorsed by DefiLlama.
 
 Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a query, and press Enter to open the official project link in your default browser.
@@ -23,12 +29,6 @@ Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a q
     </td>
   </tr>
 </table>
-
-<p>
-  <a href="#">
-    <img src="https://shieldcn.dev/badge/Download-DefiLlama%20Search-000000.svg?mode=light&logo=apple&logoColor=fff&size=lg" alt="Download the latest version of DefiLlama Search" width="220">
-  </a>
-</p>
 
 ## What it does
 
