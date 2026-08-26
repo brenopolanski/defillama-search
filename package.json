@@ -1,7 +1,7 @@
 {
   "name": "defillama-search",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "A tiny macOS menu bar app for fast access to DefiLlama Search",
   "repository": {

@@ -24,10 +24,10 @@ Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a q
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="./preview/screenshot-01.png" />
+      <img src="./preview/demo-01.png" />
     </td>
     <td width="50%" align="center">
-      <img src="./preview/screenshot-02.png" />
+      <img src="./preview/demo-02.png" />
     </td>
   </tr>
 </table>

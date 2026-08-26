@@ -23,7 +23,7 @@ pub async fn search_directory(query: String) -> Result<Vec<Value>, String> {
 
     let client = reqwest::Client::builder()
         .timeout(SEARCH_TIMEOUT)
-        .user_agent("defillama-search/0.1.0")
+        .user_agent("defillama-search/0.1.1")
         .build()
         .map_err(|_| USER_FACING_ERROR.to_string())?;
 

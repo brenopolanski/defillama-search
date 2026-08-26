@@ -1,6 +1,6 @@
 [package]
 name = "defillama-search"
-version = "0.1.0"
+version = "0.1.1"
 description = "A tiny macOS menu bar app for fast DefiLlama Search"
 authors = ["dashfy"]
 edition = "2021"
