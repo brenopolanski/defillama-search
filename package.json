@@ -28,6 +28,7 @@
     "prepare": "husky",
     "prettier": "prettier \"**/*.{js,mjs,ts,tsx,css,json,md}\"",
     "preview": "vite preview",
+    "tauri": "tauri",
     "tauri:build": "PATH=\"$HOME/.cargo/bin:$PATH\" tauri build",
     "tauri:dev": "PATH=\"$HOME/.cargo/bin:$PATH\" tauri dev",
     "test": "vitest run",

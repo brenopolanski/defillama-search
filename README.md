@@ -89,6 +89,17 @@ pnpm tauri:build
 
 The `.app` and `.dmg` land in `src-tauri/target/release/bundle/`.
 
+## Release
+
+Keep `package.json`, `src-tauri/tauri.conf.json`, and `src-tauri/Cargo.toml` on the same version, then push a tag:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+GitHub Actions builds a universal macOS DMG (Apple Silicon + Intel) and attaches it to the GitHub Release. The build is unsigned, so first launch is right-click the app → Open.
+
 ## Keyboard shortcuts
 
 | Shortcut                  | Action                                              |
