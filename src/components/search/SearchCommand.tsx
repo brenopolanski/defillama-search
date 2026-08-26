@@ -1,6 +1,7 @@
 import { useCallback, useRef } from 'react'
 
 import { Favorites } from '@/components/search/Favorites'
+import { PinSearchAction } from '@/components/search/PinSearchAction'
 import { RecentSearches } from '@/components/search/RecentSearches'
 import { SearchEmpty } from '@/components/search/SearchEmpty'
 import { SearchError } from '@/components/search/SearchError'
@@ -118,20 +119,32 @@ export const SearchCommand = ({ query, onQueryChange }: SearchCommandProps) => {
           </>
         )}
         {showLoading && <SearchLoading />}
-        {status === 'empty' && <SearchEmpty query={query} />}
         {status === 'error' && <SearchError />}
-        {showResults && (
-          <CommandGroup heading="Results">
-            {results.map((result) => (
-              <SearchResultItem
-                key={generateReactKey('result', result.id)}
-                pinned={Boolean(result.url && isResultPinned(result.url))}
-                query={query}
-                result={result}
-                onOpen={openResult}
-                onTogglePin={toggleResult}
-              />
-            ))}
+        {(showResults || status === 'empty') && (
+          <CommandGroup
+            className="[&_[cmdk-group-heading]]:flex [&_[cmdk-group-heading]]:w-full [&_[cmdk-group-heading]]:items-center [&_[cmdk-group-heading]]:justify-between"
+            heading={
+              <>
+                <span>Results</span>
+                <PinSearchAction
+                  pinned={isQueryPinned(query)}
+                  onToggle={() => toggleQuery(query)}
+                />
+              </>
+            }
+          >
+            {showResults &&
+              results.map((result) => (
+                <SearchResultItem
+                  key={generateReactKey('result', result.id)}
+                  pinned={Boolean(result.url && isResultPinned(result.url))}
+                  query={query}
+                  result={result}
+                  onOpen={openResult}
+                  onTogglePin={toggleResult}
+                />
+              ))}
+            {status === 'empty' && <SearchEmpty query={query} />}
           </CommandGroup>
         )}
         {showRecents && favorites.length === 0 && recents.length === 0 && (
