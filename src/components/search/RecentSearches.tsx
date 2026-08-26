@@ -1,6 +1,6 @@
 import { PinButton } from '@/components/search/PinButton'
 import { RowEnterHint } from '@/components/search/RowEnterHint'
-import { ArrowUpRight } from '@/components/shared/Icons'
+import { ArrowUpRightIcon } from '@/components/shared/Icons'
 import { CommandGroup, CommandItem } from '@/components/ui/command'
 import { generateReactKey } from '@/lib/utils'
 
@@ -30,7 +30,7 @@ export const RecentSearches = ({
           value={`recent:${item}`}
           onSelect={() => onSelect(item)}
         >
-          <ArrowUpRight aria-hidden="true" className="size-4 shrink-0 text-muted-foreground" />
+          <ArrowUpRightIcon aria-hidden="true" className="size-4 shrink-0 text-muted-foreground" />
           <span className="min-w-0 flex-1 truncate text-[13px]">{item}</span>
           <RowEnterHint />
           <PinButton label={item} pinned={isPinned(item)} onToggle={() => onTogglePin(item)} />
