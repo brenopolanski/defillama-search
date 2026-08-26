@@ -54,7 +54,7 @@ Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a q
 ## Requirements
 
 - macOS 10.15+
-- [pnpm](https://pnpm.io) 10 (`packageManager` is `pnpm@10.33.2`)
+- [pnpm](https://pnpm.io) 10
 - Node.js 20+
 - Rust 1.77.2+ (`rustup`)
 - Xcode Command Line Tools
