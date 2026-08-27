@@ -13,7 +13,9 @@
   <picture>
     <source srcset="https://shieldcn.dev/badge/Download-DefiLlama%20Search-000000.svg?mode=light&logo=apple&logoColor=fff&size=lg" media="(prefers-color-scheme: light)">
     <source srcset="https://shieldcn.dev/badge/Download-DefiLlama%20Search-ffffff.svg?mode=light&logo=apple&logoColor=000&size=lg" media="(prefers-color-scheme: dark)">
-    <img src="https://shieldcn.dev/badge/Download-DefiLlama%20Search-ffffff.svg?mode=light&logo=apple&logoColor=000&size=lg" alt="Download the latest version of DefiLlama Search">
+    <a href="https://github.com/brenopolanski/defillama-search/releases/download/v0.1.1/DefiLlama.Search_0.1.1_universal.dmg">
+      <img src="https://shieldcn.dev/badge/Download-DefiLlama%20Search-ffffff.svg?mode=light&logo=apple&logoColor=000&size=lg" alt="Download the latest version of DefiLlama Search">
+    </a>
   </picture>
 </p>
 
