@@ -109,7 +109,11 @@ git tag v0.1.0
 git push origin v0.1.0
 ```
 
-GitHub Actions builds a universal macOS DMG (Apple Silicon + Intel) and attaches it to the GitHub Release. The build is unsigned, so first launch is right-click the app → Open.
+GitHub Actions builds a universal macOS DMG (Apple Silicon + Intel) and attaches it to the GitHub Release. The build is unsigned, so Gatekeeper will block the first launch. Click **Done** (not Move to Trash), then:
+
+1. Open **System Settings → Privacy & Security**
+2. Scroll to the message that DefiLlama Search was blocked
+3. Click **Open Anyway**, then confirm
 
 ## Keyboard shortcuts
 
