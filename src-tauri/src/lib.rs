@@ -10,13 +10,15 @@ use tauri_plugin_global_shortcut::{Builder as ShortcutBuilder, ShortcutState};
 
 use crate::window::{WindowState, MAIN_WINDOW_LABEL, TOGGLE_SHORTCUT};
 
-// Launch-at-login can be added later with tauri-plugin-autostart.
-// The MVP has no settings UI, so this is intentionally omitted.
-
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
+        .plugin(
+            tauri_plugin_autostart::Builder::new()
+                .app_name("DefiLlama Search")
+                .build(),
+        )
         .plugin(
             ShortcutBuilder::default()
                 .with_shortcut(TOGGLE_SHORTCUT)

@@ -45,6 +45,7 @@ Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a q
 - Pins search results and queries as favorites (up to 20), persisted in `localStorage`
 - Shows **Favorites** above **Recent searches** when the field is empty
 - Clears search history or favorites from the tray menu
+- Starts at login on first launch of a packaged build (toggle from the tray menu)
 - Opens an **About** window from the tray menu
 
 ## Tech stack
@@ -134,6 +135,7 @@ Right-click the tray icon:
 | `Open Search`            | Show the popover (`⌘⇧L`)                  |
 | `Clear Favorites`        | Remove pinned items from `localStorage`   |
 | `Clear Search History`   | Remove recent queries from `localStorage` |
+| `Start at Login`         | Toggle launch at login (checked when on)  |
 | `About DefiLlama Search` | Open the About window                     |
 | `Quit`                   | Exit the app (`⌘Q`)                       |
 

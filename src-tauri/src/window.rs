@@ -5,11 +5,12 @@ use std::time::Duration;
 use tauri::tray::TrayIconEvent;
 use tauri::{
     image::Image,
-    menu::{Menu, MenuItem, PredefinedMenuItem},
+    menu::{CheckMenuItem, Menu, MenuItem, PredefinedMenuItem},
     tray::{MouseButton, MouseButtonState, TrayIconBuilder},
     window::Color,
     AppHandle, Emitter, Manager, WebviewUrl, WebviewWindow, WebviewWindowBuilder,
 };
+use tauri_plugin_autostart::ManagerExt;
 use tauri_plugin_opener::OpenerExt;
 
 pub const TOGGLE_SHORTCUT: &str = "CommandOrControl+Shift+L";
@@ -54,6 +55,11 @@ impl WindowState {
 }
 
 pub fn setup_tray(app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
+    // Release builds opt in once so a fresh install starts at login. Dev
+    // builds skip this so `tauri dev` does not register the debug binary.
+    #[cfg(not(debug_assertions))]
+    enable_autostart_on_first_launch(app);
+
     let open_item = MenuItem::with_id(app, "open", "Open Search", true, Some(TOGGLE_SHORTCUT))?;
     let clear_favorites_item = MenuItem::with_id(
         app,
@@ -69,6 +75,14 @@ pub fn setup_tray(app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
         true,
         None::<&str>,
     )?;
+    let launch_at_login_item = CheckMenuItem::with_id(
+        app,
+        "launch-at-login",
+        "Start at Login",
+        true,
+        app.autolaunch().is_enabled().unwrap_or(false),
+        None::<&str>,
+    )?;
     let about_item = MenuItem::with_id(
         app,
         "about",
@@ -78,6 +92,7 @@ pub fn setup_tray(app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
     )?;
     let quit_item = MenuItem::with_id(app, "quit", "Quit", true, Some("cmd+q"))?;
     let top_separator = PredefinedMenuItem::separator(app)?;
+    let middle_separator = PredefinedMenuItem::separator(app)?;
     let bottom_separator = PredefinedMenuItem::separator(app)?;
     let menu = Menu::with_items(
         app,
@@ -86,6 +101,8 @@ pub fn setup_tray(app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
             &top_separator,
             &clear_favorites_item,
             &clear_recents_item,
+            &middle_separator,
+            &launch_at_login_item,
             &bottom_separator,
             &about_item,
             &quit_item,
@@ -93,6 +110,7 @@ pub fn setup_tray(app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
     )?;
 
     let icon = Image::from_bytes(include_bytes!("../icons/tray-icon.png"))?;
+    let launch_at_login_item = launch_at_login_item.clone();
 
     TrayIconBuilder::with_id("main")
         .icon(icon)
@@ -100,10 +118,11 @@ pub fn setup_tray(app: &AppHandle) -> Result<(), Box<dyn std::error::Error>> {
         .tooltip(APP_NAME)
         .menu(&menu)
         .show_menu_on_left_click(false)
-        .on_menu_event(|app, event| match event.id.as_ref() {
+        .on_menu_event(move |app, event| match event.id.as_ref() {
             "open" => show_search_window(app),
             "clear-favorites" => emit_to_search_window(app, FAVORITES_CLEARED_EVENT),
             "clear-recents" => emit_to_search_window(app, RECENTS_CLEARED_EVENT),
+            "launch-at-login" => toggle_launch_at_login(app, &launch_at_login_item),
             "about" => show_about_window(app),
             "quit" => app.exit(0),
             _ => {}
@@ -152,6 +171,40 @@ pub fn show_search_window(app: &AppHandle) {
         tokio::time::sleep(Duration::from_millis(250)).await;
         state.ignore_blur.store(false, Ordering::SeqCst);
     });
+}
+
+fn toggle_launch_at_login(app: &AppHandle, item: &CheckMenuItem<tauri::Wry>) {
+    let autostart = app.autolaunch();
+    let currently_enabled = autostart.is_enabled().unwrap_or(false);
+    let changed = if currently_enabled {
+        autostart.disable().is_ok()
+    } else {
+        autostart.enable().is_ok()
+    };
+    let enabled = if changed {
+        !currently_enabled
+    } else {
+        autostart.is_enabled().unwrap_or(currently_enabled)
+    };
+    let _ = item.set_checked(enabled);
+}
+
+/// Registers login launch the first time a packaged build runs. A marker file
+/// keeps later launches from turning it back on after the user unchecks it.
+#[cfg(not(debug_assertions))]
+fn enable_autostart_on_first_launch(app: &AppHandle) {
+    let Ok(config_dir) = app.path().app_config_dir() else {
+        return;
+    };
+    let marker = config_dir.join("autostart-initialized");
+    if marker.exists() {
+        return;
+    }
+
+    let _ = std::fs::create_dir_all(&config_dir);
+    if app.autolaunch().enable().is_ok() {
+        let _ = std::fs::write(marker, []);
+    }
 }
 
 fn emit_to_search_window(app: &AppHandle, event: &str) {

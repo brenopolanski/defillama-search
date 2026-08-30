@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "DefiLlama Search",
-  "version": "0.1.1",
-  "identifier": "org.dashfy.defillama-search",
+  "version": "0.2.0",
+  "identifier": "com.brenopolanski.defillama-search",
   "build": {
     "beforeDevCommand": "pnpm dev",
     "devUrl": "http://localhost:1420",
