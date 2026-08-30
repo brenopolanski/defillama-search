@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { DefiLlamaIcon } from '@/components/shared/Icons'
+import { DefiLlamaSearchIcon } from '@/components/shared/Icons'
 import { DEFILLAMA, DEFILLAMA_SEARCH } from '@/lib/constants'
 import { closeCurrentWindow, getAppVersion } from '@/lib/desktop'
 
@@ -43,7 +43,7 @@ export const About = () => {
     >
       {/* Mirrors the generated app icon: the logo inset on its dark plate. */}
       <div className="flex size-24 items-center justify-center rounded-[21px] bg-[#F7F7F7] shadow-lg ring-1 ring-white/10">
-        <DefiLlamaIcon className="h-17.5 w-auto" />
+        <DefiLlamaSearchIcon className="h-17.5 w-auto" />
       </div>
 
       <div className="flex flex-col gap-1">
