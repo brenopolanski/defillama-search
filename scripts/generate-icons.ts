@@ -13,7 +13,7 @@ const MARGIN = 0.14
 const APP_BACKGROUND = { r: 247, g: 247, b: 247, alpha: 1 }
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const svgPath = join(root, 'src', 'assets', 'defillama-logo.svg')
+const svgPath = join(root, 'src', 'assets', 'defillama-search-logo.svg')
 const traySourcePath = join(root, 'src', 'assets', 'defillama-tray-icon.png')
 const iconsDir = join(root, 'src-tauri', 'icons')
 const appIconPath = join(iconsDir, 'app-icon.png')
