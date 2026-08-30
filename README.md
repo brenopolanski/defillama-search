@@ -23,7 +23,7 @@ This is an **independent open-source client**. It is not developed, maintained, 
 
 Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a query, and press Enter to open the official project link in your default browser.
 
-![DefiLlama Search](./preview/defillama-search-banner.png)
+![DefiLlama Search Banner](./preview/defillama-search-banner.png)
 
 ## What it does
 
