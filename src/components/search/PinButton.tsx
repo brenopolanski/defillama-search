@@ -1,4 +1,4 @@
-import type * as React from 'react'
+import type { MouseEvent, PointerEvent } from 'react'
 
 import { PinIcon } from '@/components/shared/Icons'
 import { cn } from '@/lib/utils'
@@ -12,7 +12,7 @@ interface PinButtonProps {
 export const PinButton = ({ label, pinned, onToggle }: PinButtonProps) => {
   const action = pinned ? 'Unpin' : 'Pin'
 
-  const stopRowAction = (event: React.MouseEvent | React.PointerEvent) => {
+  const stopRowAction = (event: MouseEvent | PointerEvent) => {
     event.preventDefault()
     event.stopPropagation()
   }
