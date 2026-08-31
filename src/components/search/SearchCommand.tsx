@@ -10,6 +10,7 @@ import { SearchResultItem } from '@/components/search/SearchResultItem'
 import { DefiLlamaIcon, SearchIcon, XIcon } from '@/components/shared/Icons'
 import { Loading } from '@/components/shared/Loading'
 import { Command, CommandGroup, CommandInput, CommandList } from '@/components/ui/command'
+import { Kbd } from '@/components/ui/kbd'
 import { Separator } from '@/components/ui/separator'
 import { useFavorites } from '@/hooks/useFavorites'
 import { useRecentSearches } from '@/hooks/useRecentSearches'
@@ -166,17 +167,11 @@ export const SearchCommand = ({ query, onQueryChange }: SearchCommandProps) => {
           <span>{DEFILLAMA_SEARCH}</span>
         </div>
         <div className="flex items-center gap-1">
-          <kbd className="rounded-md border border-border bg-muted px-1.5 py-0.5 font-sans text-[10px] tracking-wide">
-            {NAVIGATE_LABEL}
-          </kbd>
+          <Kbd>{NAVIGATE_LABEL}</Kbd>
           <span>Navigate</span>
-          <kbd className="rounded-md border border-border bg-muted px-1.5 py-0.5 font-sans text-[10px] tracking-wide">
-            {OPEN_LABEL}
-          </kbd>
+          <Kbd>{OPEN_LABEL}</Kbd>
           <span>Open</span>
-          <kbd className="rounded-md border border-border bg-muted px-1.5 py-0.5 font-sans text-[10px] tracking-wide">
-            {CLEAR_LABEL}
-          </kbd>
+          <Kbd>{CLEAR_LABEL}</Kbd>
           <span>Clear</span>
         </div>
       </footer>
