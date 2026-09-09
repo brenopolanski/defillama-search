@@ -8,6 +8,14 @@ import { isAboutWindow } from '@/lib/desktop'
 
 import App from './App'
 
+const renderView = () => {
+  if (isAboutWindow()) {
+    return <About />
+  }
+
+  return <App />
+}
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>{isAboutWindow() ? <About /> : <App />}</React.StrictMode>,
+  <React.StrictMode>{renderView()}</React.StrictMode>,
 )
