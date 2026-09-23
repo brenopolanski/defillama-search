@@ -19,11 +19,16 @@
   </picture>
 </p>
 
-This is an **independent open-source client**. It is not developed, maintained, or endorsed by DefiLlama.
+![DefiLlama Search Banner](./preview/banner.png)
+
+<!--idoc:ignore:start-->
+
+> [!IMPORTANT]
+> This is an **independent open-source client**. It is not developed, maintained, or endorsed by [DefiLlama](https://defillama.com).
+
+<!--idoc:ignore:end-->
 
 Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a query, and press Enter to open the official project link in your default browser.
-
-![DefiLlama Search Banner](./preview/banner.png)
 
 ## What it does
 
