@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./preview/logo.png" alt="DefiLlama Search Logo" width="128">
+  <img src="./preview/logo.png" alt="DefiLlama Search logo" width="128">
 </p>
 
 <h1 align="center">
