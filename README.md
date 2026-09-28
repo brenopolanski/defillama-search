@@ -19,7 +19,13 @@
   </picture>
 </p>
 
-![DefiLlama Search Banner](./preview/banner.png)
+<p align="center">
+  <img src="./preview/promo.gif" alt="DefiLlama Search promo" width="100%">
+</p>
+
+## Introduction
+
+Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a query, and press Enter to open the official project link in your default browser.
 
 <!--idoc:ignore:start-->
 
@@ -28,7 +34,11 @@
 
 <!--idoc:ignore:end-->
 
-Click the menu bar icon (or press `⌘⇧L`) to open a compact popover, type a query, and press Enter to open the official project link in your default browser.
+![DefiLlama Search Banner](./preview/banner.png)
+
+### :heart: Found this project useful?
+
+If you found this project useful, then please consider giving it a :star: on GitHub and sharing it with your friends via social media. It helps to promote the project and attract more contributors.
 
 ## What it does
 
